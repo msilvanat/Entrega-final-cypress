@@ -12,9 +12,7 @@ export class ReciptPage {
   }
 
   verifyFullname(name, lastname) {
-    cy.get(this.pName).invoke("text").then(() => {
-        cy.contains(name + " " + lastname);
-      });
+    return cy.get(this.pName).contains(name + " " + lastname);
   }
 
   verifyCreditcard() {

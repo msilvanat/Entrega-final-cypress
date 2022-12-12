@@ -75,7 +75,7 @@ describe("Testing Online Shop Module - Final Project Pushing It", () => {
     checkoutPage.clickSubmitButton();
     reciptPage.verifyProgressBar().should("exist");
     reciptPage.verifyThankButton().should("have.text", "Thank you");
-    reciptPage.verifyFullname(checkoutData.firstname, checkoutData.lastname);
+    reciptPage.verifyFullname(checkoutData.firstname, checkoutData.lastname).should("include.text", `${checkoutData.firstname +  " " + checkoutData.lastname}`);
     reciptPage.verifyProduct(productsData.firstProduct.value).should("have.text", productsData.firstProduct.value);
     reciptPage.verifyProduct(productsData.secondProduct.value).should("have.text", productsData.secondProduct.value);
     reciptPage.verifyCreditcard().should("have.text", checkoutData.cardnumber);
